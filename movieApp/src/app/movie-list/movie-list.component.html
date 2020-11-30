@@ -5,12 +5,12 @@
             style="width: 50%;">
     </div>
     <div class="row mt-4" *ngFor = "let movie of movieList">
-        <div class="col-md-2" [routerLink]="['viewMovieDetails/'+movie._id]">
+        <div class="col-md-2" [routerLink]="['viewMovieDetails/'+movie._id]" style="cursor: pointer;">
             <img src="{{movie.poster}}" alt="" width="100px" height="150px" *ngIf="movie.poster">
             <img src="/assets/image/placeHolder.png" alt="" width="100px" height="150px" *ngIf="!movie.poster">
         </div>
         <div class="col-md-8">
-            <div>
+            <div [routerLink]="['viewMovieDetails/'+movie._id]" style="cursor: pointer;">
                 <p>
                     <strong>
                        {{movie.title}}

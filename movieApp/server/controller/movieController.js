@@ -4,7 +4,7 @@ var comments = require('../model/comments');
 const { ObjectId } = require('mongodb');
 exports.getMovieList = async (req, res) => {
     try {
-        var data = await movies.find().limit(15);
+        var data = await movies.find().limit(14);
         if (data) return res.json({
             status: 1,
             data: data

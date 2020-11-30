@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class ApiService {
   
-  baseUrl = 'localhost:8080';
+  baseUrl = environment.baseUrl;
   
   constructor( public http: HttpClient) { }
 
