@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="search-container mb-4 text-center">
+        <label>Search</label>
+        <input type="text" placeholder="Movie name, genre, release year" name="search" class="ml-2 mt-3"
+            style="width: 50%;">
+    </div>
+    <div class="row mt-4" *ngFor = "let movie of movieList">
+        <div class="col-md-2" [routerLink]="['viewMovieDetails/'+movie._id]">
+            <img src="{{movie.poster}}" alt="" width="100px" height="150px" *ngIf="movie.poster">
+            <img src="/assets/image/placeHolder.png" alt="" width="100px" height="150px" *ngIf="!movie.poster">
+        </div>
+        <div class="col-md-8">
+            <div>
+                <p>
+                    <strong>
+                       {{movie.title}}
+                    </strong>
+                </p>
+            </div>
+            <div class="mb-2">
+                <span style="background-color: rgba(177, 174, 165, 0.274); padding:2px; margin-right: 2px;"
+                    *ngFor="let genres of movie.genres">{{genres}}</span>
+                    <span style="float: right;"><strong>Released: </strong>{{ movie.released | date:'fullDate' }}
+
+                    </span>
+            </div>
+        </div>
+        <div class="col-md-2" style="border-left: solid gray 1px;">
+            <p>IMDB {{movie.imdb.rating}}</p>
+        </div>
+    </div>
+</div>
